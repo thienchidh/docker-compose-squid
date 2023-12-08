@@ -1,11 +1,10 @@
 version: "3.4"
 services:
   squid:
-    image: sameersbn/squid:3.5.27-2    
-    restart: always
-    container_name: squid
-    hostname: squid
-    volumes:
-     - ./config/squid.conf:/etc/squid/squid.conf
+    image: sameersbn/squid:3.5.27-2
     ports:
-     - "127.0.0.1:3128:3128"
+      - "8080:3128"
+    volumes:
+      - ./config/squid.conf:/etc/squid/squid.conf
+      - ./config/passwords:/etc/squid/passwords
+    restart: always
